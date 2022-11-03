@@ -15,7 +15,7 @@ runs:
       with:
         separator: ","
     - name: Validate templates
-        using: "docker"
-        image: "Dockerfile"
-        with: 
-          changed_files: "${{steps.changed-files.outputs.all_changed_files}}"
+      using: "docker"
+      image: "Dockerfile"
+      with: 
+        changed_files: "${{steps.changed-files.outputs.all_changed_files}}"
