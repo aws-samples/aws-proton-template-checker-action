@@ -112,6 +112,15 @@ Environment:
 
 For simplicity, you provide sample outputs for your service, environment and components only once (not once per service instance or environment).  
 
+## Screenshots
+
+To see what this action can do, take a gander at these screenshots of it in action. 
+
+![Findings](https://user-images.githubusercontent.com/828419/199821350-0bb77af6-c249-41e5-8ef5-cb865efa99e1.png?raw=true)
+![Failed Findings](https://user-images.githubusercontent.com/828419/199821313-67b3df3d-f5b0-40b3-a12c-41f3a423f6b6.png?raw=true)
+![Annotations](https://user-images.githubusercontent.com/828419/199821284-99c1e876-0440-4528-8970-436c82af48fe.png?raw=true)
+
+
 ## Limitations
 
 This is currently a work-in-progress, here are some things we don't currently support:
