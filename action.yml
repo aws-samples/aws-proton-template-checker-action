@@ -1,11 +1,21 @@
-name: "AWS Proton Jinja Template Validation Action"
-description: "This action validates that a template renders correctly"
-author: "David Killmon"
-inputs:
-  changed_files:
-    description: "Input to use"
-    required: false
-    default: ""
+name: 'AWS Proton Template Checker Action for GitHub Actions'
+description: 'Renders and lints your AWS Proton templates during pull-requests'
+branding:
+  icon: 'cloud'
+  color: 'orange'
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: "composite"
+  steps: 
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v34
+      with:
+        separator: ","
+    - name: Validate templates
+        using: "docker"
+        image: "Dockerfile"
+        with: 
+          changed_files: "${{steps.changed-files.outputs.all_changed_files}}"
