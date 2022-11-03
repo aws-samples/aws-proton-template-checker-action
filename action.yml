@@ -3,18 +3,11 @@ description: 'Renders and lints your AWS Proton templates during pull-requests'
 branding:
   icon: 'cloud'
   color: 'orange'
+inputs:
+  changed_files:
+    description: "Input to use"
+    required: false
+    default: ""
 runs:
-  using: "composite"
-  steps: 
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: Get changed files
-      id: changed-files
-      uses: tj-actions/changed-files@v34
-      with:
-        separator: ","
-    - name: Validate templates
-      uses: ./.github/actions/template-validator
-      with: 
-        changed_files: "${{steps.changed-files.outputs.all_changed_files}}"
+  using: "docker"
+  image: "Dockerfile"
