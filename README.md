@@ -1,10 +1,11 @@
-# AWS Proton CFN Template Validation Action ⚛️
+# AWS Proton Template checker action ⚛️
 
 This action helps you to validate changes to an AWS Proton template (CloudFormation & Jinja template) are valid. Whenever a pull request is created that includes a file in your template bundle, this action will:
 
 1. Render the template using a sample spec
 2. Run the rendered templates through `cfn-lint`
 3. Publish a summary of any findings 
+4. Fail if it finds any errors
 
 
 ## Requirements
