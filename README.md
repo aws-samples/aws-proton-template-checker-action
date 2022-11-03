@@ -44,9 +44,8 @@ jobs:
       uses: tj-actions/changed-files@v34
       with:
         separator: ","
-    - name: Run action
-      # Put your action repo here
-      uses: kohidave/proton-jinja-template-validation-action@main
+    - name: Validate changed templates
+      uses: aws-samples/aws-proton-template-checker-action@v1.0
       with: 
         changed_files: "${{steps.changed-files.outputs.all_changed_files}}"
 ```
