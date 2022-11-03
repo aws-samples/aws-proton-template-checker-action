@@ -15,7 +15,6 @@ runs:
       with:
         separator: ","
     - name: Validate templates
-      using: "docker"
-      image: "Dockerfile"
+      uses: ./.github/actions/template-validator
       with: 
         changed_files: "${{steps.changed-files.outputs.all_changed_files}}"
