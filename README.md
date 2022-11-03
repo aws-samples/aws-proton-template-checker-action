@@ -7,25 +7,9 @@ This action helps you to validate changes to an AWS Proton template (CloudFormat
 3. Publish a summary of any findings 
 4. Fail if it finds any errors
 
+## Usage 
 
-## Requirements
-
-To use this action, you have to provide a _few_ additional files in your template bundle. 
-
-```
-spec/spec.yaml
-spec/sample-outputs.yaml [only for service templates]
-```
-
-The `spec.yaml` file needs to contain a valid spec for the template it's a part of. These values will be used to render the template.
-
-The `sample-outputs.yaml` is a simple yaml file which contains a list of key/values to emulate environment and service outputs. This is only needed for service templates (service instances and pipelines).
-
-
-
-## Ussage 
-
-Add the following workflow to your template repository to validate template changes during pull requests (it's recomended you turn on branch protection so invalid are blocked from being merged).
+Add the following GitHub workflow to your template repository to validate template changes during pull requests (it's recomended you turn on branch protection so invalid are blocked from being merged).
 
 ```yaml
 name: Validate Template
@@ -49,6 +33,19 @@ jobs:
       with: 
         changed_files: "${{steps.changed-files.outputs.all_changed_files}}"
 ```
+
+## Requirements
+
+To use this action, you have to provide a _few_ additional files in your template bundle. 
+
+```
+spec/spec.yaml
+spec/sample-outputs.yaml [only for service templates]
+```
+
+The `spec.yaml` file needs to contain a valid spec for the template it's a part of. These values will be used to render the template.
+
+The `sample-outputs.yaml` is a simple yaml file which contains a list of key/values to emulate environment and service outputs. This is only needed for service templates (service instances and pipelines).
 
 ### Spec files and layout
 
