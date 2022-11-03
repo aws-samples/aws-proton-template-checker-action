@@ -12,7 +12,7 @@ This action helps you to validate changes to an AWS Proton template (CloudFormat
 Add the following GitHub workflow to your template repository to validate template changes during pull requests (it's recomended you turn on branch protection so invalid are blocked from being merged).
 
 ```yaml
-name: Validate Template
+name: Validate Updated Templates
 on:
   pull_request:
     branches: [ "main" ]
