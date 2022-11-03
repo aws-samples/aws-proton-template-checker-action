@@ -1,0 +1,23 @@
+name: JinjaTemplateValidation
+on: [pull_request]
+jobs:
+  JinjaTemplateValidation:
+    name: JinjaTemplateValidation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.7"
+      - uses: actions/checkout@v1
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v29.0.0
+        with:
+          separator: ","
+      - name: Render
+        with: 
+          changed_files: "${{steps.changed-files.outputs.all_changed_files}}"
+        run: |
+          pip install flake8
+          flake8 main.py
