@@ -5,7 +5,7 @@ branding:
   color: 'orange'
 inputs:
   changed_files:
-    description: "Input to use"
+    description: "Changed files to check"
     required: false
     default: ""
 runs:
